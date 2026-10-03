@@ -1,0 +1,112 @@
+name: Submit or update a programme
+description: Suggest an Aalimiyah programme or a correction to an existing record
+title: "[Programme]: "
+labels: ["course-submission", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve the directory. This submission and your GitHub username will be public. Please provide official sources wherever possible and do not include private personal information.
+  - type: dropdown
+    id: submission_type
+    attributes:
+      label: Submission type
+      options:
+        - New programme
+        - Correction to an existing programme
+        - Programme appears to have closed
+    validations:
+      required: true
+  - type: input
+    id: institution
+    attributes:
+      label: Institution
+      placeholder: Example Islamic College
+    validations:
+      required: true
+  - type: input
+    id: programme
+    attributes:
+      label: Programme name
+      placeholder: Online Aalimiyah Programme
+    validations:
+      required: true
+  - type: input
+    id: official_url
+    attributes:
+      label: Official programme URL
+      placeholder: https://example.org/aalimiyah
+    validations:
+      required: true
+  - type: dropdown
+    id: delivery
+    attributes:
+      label: Delivery mode
+      options: [Online, In-person, Hybrid, Unknown]
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: Institution location
+      description: The institution's base or campus location, even for an online programme.
+      placeholder: Melbourne, Australia
+  - type: input
+    id: languages
+    attributes:
+      label: Languages of instruction
+      description: Separate multiple languages with semicolons.
+      placeholder: English; Arabic
+  - type: input
+    id: duration
+    attributes:
+      label: Duration and study load
+      placeholder: 6 years, part-time
+  - type: input
+    id: gender
+    attributes:
+      label: Gender availability
+      placeholder: Open, men, women, separate classes, or unknown
+  - type: textarea
+    id: subjects
+    attributes:
+      label: Subjects taught
+      description: Include only subjects shown by a reliable source. Separate values with semicolons.
+      placeholder: Arabic grammar; Fiqh; Hadith; Tafsir
+  - type: textarea
+    id: curriculum
+    attributes:
+      label: Curriculum, school of law and theology
+      description: Report the institution's stated information and identify anything that is inferred.
+  - type: textarea
+    id: entry
+    attributes:
+      label: Entry requirements
+  - type: textarea
+    id: tuition
+    attributes:
+      label: Tuition and financial aid
+      description: Include amount, currency, billing period and the date checked.
+  - type: textarea
+    id: sources
+    attributes:
+      label: Additional sources
+      description: Add official syllabus, admissions or fee URLs, one per line.
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else reviewers should know?
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      options:
+        - label: I have searched the directory for an existing record.
+          required: true
+        - label: The information is public and I have provided its source.
+          required: true
+        - label: I agree that my contribution may be distributed under the repository's applicable licences.
+          required: true
+

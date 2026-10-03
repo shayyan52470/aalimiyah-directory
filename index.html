@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Discover and compare online and in-person Aalimiyah programmes from institutions around the world.">
+  <meta name="theme-color" content="#173f35">
+  <meta property="og:title" content="Aalimiyah Directory">
+  <meta property="og:description" content="Open data for informed study choices.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shayyan52470.github.io/aalimiyah-directory/">
+  <meta property="og:image" content="https://shayyan52470.github.io/aalimiyah-directory/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aalimiyah Directory">
+  <meta name="twitter:description" content="Open data for informed study choices.">
+  <meta name="twitter:image" content="https://shayyan52470.github.io/aalimiyah-directory/assets/og.png">
+  <title>Aalimiyah Directory</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script type="module" src="assets/app.js"></script>
+</head>
+<body data-page="directory">
+  <a class="skip-link" href="#main">Skip to results</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Aalimiyah Directory home">
+      <span class="brand-mark" aria-hidden="true">ع</span>
+      <span><strong>Aalimiyah</strong><small>Directory</small></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a aria-current="page" href="index.html">Directory</a>
+      <a href="data.html">Explore the data</a>
+      <a href="methodology.html">Methodology</a>
+      <a class="nav-action" href="submit.html">Submit a programme</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="intro shell">
+      <div>
+        <p class="eyebrow">An open, community-reviewed resource</p>
+        <h1>Find an Aalimiyah programme that fits your path.</h1>
+        <p class="lede">Compare formats, teaching languages, traditions and subjects. Every published record links back to its source.</p>
+      </div>
+      <dl class="summary" aria-label="Directory summary">
+        <div><dt id="programme-count">—</dt><dd>programmes</dd></div>
+        <div><dt id="country-count">—</dt><dd>countries</dd></div>
+        <div><dt id="online-count">—</dt><dd>online options</dd></div>
+      </dl>
+    </section>
+
+    <section class="workspace shell" aria-labelledby="browse-heading">
+      <div class="workspace-heading">
+        <div><p class="eyebrow">Browse the directory</p><h2 id="browse-heading">Compare programmes</h2></div>
+        <a class="text-link" href="data.html">Inspect the complete CSV <span aria-hidden="true">→</span></a>
+      </div>
+
+      <form class="filters" id="directory-filters" role="search">
+        <label class="search-field">
+          <span>Search</span>
+          <input id="search" type="search" placeholder="Institution, subject, country…" autocomplete="off">
+        </label>
+        <label><span>Delivery</span><select id="delivery"><option value="">All formats</option></select></label>
+        <label><span>Study load</span><select id="study-load"><option value="">All study loads</option></select></label>
+        <label><span>Language</span><select id="language"><option value="">All languages</option></select></label>
+        <label><span>School of law</span><select id="school"><option value="">All schools</option></select></label>
+        <label><span>Subject</span><select id="subject"><option value="">All subjects</option></select></label>
+        <button class="button secondary reset-button" type="reset">Clear filters</button>
+      </form>
+
+      <div class="results-meta" aria-live="polite"><strong id="result-count">Loading…</strong><span id="active-filter-summary"></span></div>
+      <div id="course-grid" class="course-grid" aria-busy="true"></div>
+      <div id="directory-error" class="notice error" hidden>
+        <h3>The directory could not be loaded</h3>
+        <p>Try refreshing the page or <a href="data/courses.csv">download the CSV directly</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+      <p><strong>Aalimiyah Directory</strong><br><span>Open data for informed study choices.</span></p>
+      <p><a href="https://github.com/shayyan52470/aalimiyah-directory">View on GitHub</a> · <a href="submit.html">Suggest a programme</a></p>
+    </div>
+  </footer>
+</body>
+</html>

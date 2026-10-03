@@ -1,0 +1,8 @@
+# The project owner reviews changes across the repository.
+* @shayyan52470
+
+# Data changes require explicit owner review.
+/data/ @shayyan52470
+/scripts/ @shayyan52470
+/.github/workflows/ @shayyan52470
+

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="How the Aalimiyah Directory collects, verifies and structures programme information.">
+  <meta name="theme-color" content="#173f35">
+  <meta property="og:title" content="Methodology · Aalimiyah Directory">
+  <meta property="og:description" content="How the directory structures, sources and reviews programme information.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shayyan52470.github.io/aalimiyah-directory/methodology.html">
+  <meta property="og:image" content="https://shayyan52470.github.io/aalimiyah-directory/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Methodology · Aalimiyah Directory">
+  <meta name="twitter:description" content="How the directory structures, sources and reviews programme information.">
+  <meta name="twitter:image" content="https://shayyan52470.github.io/aalimiyah-directory/assets/og.png">
+  <title>Methodology · Aalimiyah Directory</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to methodology</a>
+  <header class="site-header">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">ع</span><span><strong>Aalimiyah</strong><small>Directory</small></span></a>
+    <nav aria-label="Primary navigation"><a href="index.html">Directory</a><a href="data.html">Explore the data</a><a aria-current="page" href="methodology.html">Methodology</a><a class="nav-action" href="submit.html">Submit a programme</a></nav>
+  </header>
+  <main id="main" class="shell page-main narrow">
+    <header class="page-heading"><p class="eyebrow">Methodology</p><h1>Useful comparisons, without pretending every programme is the same.</h1><p class="lede">The directory separates published facts, editorial classifications and unverified gaps. Sources are retained so readers can check important details themselves.</p></header>
+
+    <section class="principles">
+      <article><span>01</span><h2>Programme-level records</h2><p>Each row describes one programme, not an institution in general. Different formats or tracks receive separate records.</p></article>
+      <article><span>02</span><h2>Evidence before completeness</h2><p>An empty field means “not yet verified.” We avoid turning likelihoods or assumptions into facts.</p></article>
+      <article><span>03</span><h2>Neutral descriptions</h2><p>The directory records a programme’s stated curriculum and orientation without ranking religious legitimacy or teaching quality.</p></article>
+    </section>
+
+    <section class="prose">
+      <h2>What we record</h2>
+      <p>The data is organised into five groups. Identity fields distinguish the programme; delivery fields describe how a student participates; academic fields cover curriculum and subjects; cost and recognition fields capture practical claims; provenance fields show where and when those claims were checked.</p>
+      <div class="field-groups">
+        <article><h3>Identity</h3><p><code>institution</code>, <code>programme_name</code>, <code>programme_type</code>, <code>status</code></p></article>
+        <article><h3>Delivery</h3><p><code>delivery_mode</code>, location, timezone, languages, gender, study load, duration and schedule</p></article>
+        <article><h3>Academic</h3><p>Arabic entry level, curriculum, jurisprudence and theology, qualification, subjects and named texts</p></article>
+        <article><h3>Practical</h3><p>Entry requirements, accreditation, tuition period and currency, financial aid</p></article>
+        <article><h3>Provenance</h3><p>Official and syllabus URLs, all source URLs, verification date and restrained editorial notes</p></article>
+      </div>
+
+      <h2>Subjects are not general tags</h2>
+      <p><code>subjects</code> contains areas formally taught—for example, Hadith, Fiqh, Arabic grammar or Tafsir. <code>tags</code> is reserved for useful cross-cutting characteristics that do not have their own field, such as <code>dars-nizami</code>, <code>live-classes</code>, <code>recordings-available</code> or <code>self-paced</code>. Values use semicolons and a consistent vocabulary.</p>
+
+      <h2>Published, draft and archived</h2>
+      <p><strong>Published</strong> records have enough information and source material to appear in the main directory. <strong>Draft</strong> records are research leads visible in the data explorer but excluded from the main results. <strong>Archived</strong> records preserve programmes that have ended or can no longer be verified.</p>
+
+      <h2>What we deliberately exclude</h2>
+      <p>Private contact details, personal living preferences, unsourced reputational scores and unattributed opinions are not imported from research sheets. The public CSV is produced from an explicit list of approved columns.</p>
+      <p>For the exact field definitions and accepted values, see <a href="https://github.com/shayyan52470/aalimiyah-directory/blob/main/DATA_GUIDE.md">DATA_GUIDE.md on GitHub</a>.</p>
+    </section>
+  </main>
+  <footer><div class="shell footer-inner"><p><strong>Aalimiyah Directory</strong><br><span>Open data for informed study choices.</span></p><p><a href="https://github.com/shayyan52470/aalimiyah-directory">View on GitHub</a> · <a href="submit.html">Suggest a programme</a></p></div></footer>
+</body>
+</html>

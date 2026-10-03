@@ -1,0 +1,59 @@
+name: Propose Google Sheet updates
+
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      GOOGLE_SHEET_CSV_URL: ${{ secrets.GOOGLE_SHEET_CSV_URL }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check sync configuration
+        id: configured
+        shell: bash
+        run: |
+          if [ -z "$GOOGLE_SHEET_CSV_URL" ]; then
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "Add the published CSV URL as the GOOGLE_SHEET_CSV_URL repository secret to enable syncing."
+          else
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Export and validate
+        if: steps.configured.outputs.configured == 'true'
+        run: |
+          python3 scripts/sync_sheet.py
+          python3 scripts/check_project.py
+      - name: Open or update review pull request
+        if: steps.configured.outputs.configured == 'true'
+        shell: bash
+        run: |
+          if git diff --quiet -- data/courses.csv; then
+            echo "The reviewed CSV is already current."
+            exit 0
+          fi
+          branch="automation/google-sheet-sync"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -C "$branch"
+          git add data/courses.csv
+          git commit -m "data: sync programmes from Google Sheet"
+          git push --force-with-lease origin "HEAD:$branch"
+          if gh pr view "$branch" >/dev/null 2>&1; then
+            gh pr edit "$branch" --title "data: sync programmes from Google Sheet" --body "Automated Sheet export. Review the changed records and sources before merging."
+          else
+            gh pr create --base main --head "$branch" --title "data: sync programmes from Google Sheet" --body "Automated Sheet export. Review the changed records and sources before merging."
+          fi
