@@ -1,6 +1,5 @@
 {
   "sheet_id": "14-Fcq7nUKCA4hmdkU_IOxJuMHmz6dNVbGP-O2hVgKG0",
-  "gid": "0",
-  "note": "Set the GOOGLE_SHEET_CSV_URL repository secret to the URL produced by Google Sheets: File > Share > Publish to web > CSV. The editable Sheet is not currently anonymously exportable."
+  "gid": "1876648117",
+  "note": "The canonical source is the published Public Data tab. GitHub Actions stores its published CSV URL in the GOOGLE_SHEET_CSV_URL repository secret."
 }
-
