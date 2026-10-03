@@ -48,16 +48,11 @@ make serve
 
 ## Google Sheet sync
 
-The referenced research Sheet is currently private to authenticated viewers, so GitHub Actions cannot export it. To enable scheduled syncing:
+The workbook has a dedicated `Public Data` tab containing the canonical headers in `DATA_GUIDE.md`. Only that tab is published as CSV; the original research tab remains unpublished. Its URL is stored in the `GOOGLE_SHEET_CSV_URL` GitHub Actions secret.
 
-1. Create or migrate to a public-data tab containing the headers in `DATA_GUIDE.md`. Keep private notes on a different, unpublished tab.
-2. In Google Sheets, choose **File → Share → Publish to web**, select only the public-data tab, and choose **Comma-separated values (.csv)**.
-3. Copy the generated CSV URL.
-4. In the GitHub repository, open **Settings → Secrets and variables → Actions → New repository secret**.
-5. Name it `GOOGLE_SHEET_CSV_URL` and paste the published CSV URL.
-6. Run **Propose Google Sheet updates** from the Actions tab once to test it.
+The **Propose Google Sheet updates** workflow runs daily. When the Sheet changes, it validates the export and opens or refreshes a pull request. It never deploys unreviewed Sheet changes directly.
 
-The workflow runs daily and opens or refreshes a pull request. It never deploys unreviewed Sheet changes directly.
+See [docs/GOOGLE_SHEETS_SETUP.md](docs/GOOGLE_SHEETS_SETUP.md) before changing the publication or rebuilding the integration.
 
 For a one-off local export:
 
@@ -66,7 +61,7 @@ GOOGLE_SHEET_CSV_URL='published-csv-url' python3 scripts/sync_sheet.py
 python3 scripts/validate_data.py
 ```
 
-The importer supports both the canonical headers and the original research-sheet headers. New work should use the canonical schema.
+The importer supports both the canonical headers and the original research-sheet headers. Scheduled production sync uses the canonical `Public Data` tab.
 
 ## GitHub setup
 
